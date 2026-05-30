@@ -18,7 +18,7 @@ const CERTS = [
 function Certificates() {
   return (
     <div className="mx-auto max-w-7xl px-5 py-20">
-      <SectionHeading eyebrow="Certifications" title="Quality You Can Trust, Verified." subtitle="Every shipment from Mars International is backed by internationally recognised certifications." />
+      <SectionHeading eyebrow="Certifications" title="Quality You Can Trust, Verified." subtitle="Every shipment from Mars International Trading is backed by internationally recognised certifications." />
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {CERTS.map(({ icon: Icon, t, d }) => (
           <div key={t} className="rounded-2xl border border-border bg-card p-7 text-center transition hover:-translate-y-1 hover:shadow-[var(--shadow-navy)]">

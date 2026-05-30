@@ -10,19 +10,10 @@ export const Route = createFileRoute("/clients")({
 // Highlighted client countries with approximate world-map coordinates (lon, lat → SVG x,y)
 const COUNTRIES = [
   { name: "USA", x: 200, y: 200, shipped: ["Spices", "Herbal Extracts", "Banana Leaf"] },
-  { name: "Brazil", x: 320, y: 360, shipped: ["Spices", "Turmeric", "Coriander"] },
   { name: "UK", x: 470, y: 170, shipped: ["Herbal Powders", "Moringa", "Spices"] },
-  { name: "Germany", x: 500, y: 180, shipped: ["Spirulina", "Herbal Extracts", "Spices"] },
   { name: "UAE", x: 590, y: 250, shipped: ["Granite", "Banana Leaf", "Spices", "Bamboo Salt"] },
-  { name: "Saudi Arabia", x: 575, y: 255, shipped: ["Spices", "Curry Masala", "Banana Leaf"] },
   { name: "India", x: 660, y: 260, shipped: ["Origin of Exports"] },
-  { name: "Sri Lanka", x: 670, y: 290, shipped: ["Spices", "Herbal Products"] },
-  { name: "Singapore", x: 720, y: 320, shipped: ["Granite", "Spices", "Herbal Extracts"] },
-  { name: "Malaysia", x: 720, y: 310, shipped: ["Spices", "Banana Leaf", "Curry Masala"] },
-  { name: "Japan", x: 820, y: 220, shipped: ["Bamboo Salt", "Spirulina", "Herbal Extracts"] },
   { name: "Australia", x: 800, y: 400, shipped: ["Spices", "Herbal Powders", "Banana Leaf"] },
-  { name: "South Africa", x: 540, y: 410, shipped: ["Spices", "Granite"] },
-  { name: "Kenya", x: 580, y: 340, shipped: ["Spices", "Curry Masala"] },
 ];
 
 const TESTIMONIALS = [
@@ -33,7 +24,7 @@ const TESTIMONIALS = [
 
 const STATS = [
   { label: "Global Partners", value: 45, suffix: "+" },
-  { label: "Countries Served", value: 14, suffix: "" },
+  { label: "Countries Served", value: 5, suffix: "" },
   { label: "Years Experience", value: 10, suffix: "+" },
   { label: "Products Exported", value: 20, suffix: "+" },
 ];
@@ -99,14 +90,6 @@ function Clients() {
               <stop offset="0%" stopColor="oklch(0.985 0.01 90)" />
               <stop offset="100%" stopColor="oklch(0.94 0.02 90)" />
             </radialGradient>
-            <radialGradient id="dot" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.84 0.11 86)" />
-              <stop offset="100%" stopColor="oklch(0.6 0.13 70)" />
-            </radialGradient>
-            <radialGradient id="dot-active" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.7 0.15 45)" />
-              <stop offset="100%" stopColor="oklch(0.5 0.18 30)" />
-            </radialGradient>
           </defs>
           <rect width="1000" height="500" fill="url(#bg)" rx="24" />
           {/* Stylised continent silhouettes */}
@@ -131,16 +114,6 @@ function Clients() {
             <path d="M770,380 Q830,375 850,420 Q820,445 780,440 Q760,415 770,395 Z" />
           </g>
 
-          {/* Connection arcs from India to all */}
-          <g fill="none" stroke="oklch(0.74 0.135 78 / 0.5)" strokeWidth="1" strokeDasharray="3 4">
-            {COUNTRIES.filter(c => c.name !== "India").map(c => {
-              const ix = 660, iy = 260;
-              const cx = (ix + c.x) / 2;
-              const cy = Math.min(iy, c.y) - 60;
-              return <path key={c.name} d={`M${ix},${iy} Q${cx},${cy} ${c.x},${c.y}`} />;
-            })}
-          </g>
-
           {/* Country dots */}
           {COUNTRIES.map(c => {
             const isSelected = selectedCountry?.name === c.name;
@@ -150,13 +123,18 @@ function Clients() {
                 onClick={(e) => { e.stopPropagation(); setSelectedCountry(c); }}
                 className="cursor-pointer group"
               >
-                <circle cx={c.x} cy={c.y} r="12" fill="transparent" /> {/* Hit area */}
-                <circle cx={c.x} cy={c.y} r="9" fill={isSelected ? "url(#dot-active)" : "url(#dot)"} opacity="0.4">
-                  <animate attributeName="r" values="9;16;9" dur="2.4s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite" />
+                <circle cx={c.x} cy={c.y} r="16" fill="transparent" /> {/* Hit area */}
+                
+                {/* Pulsing red effect */}
+                <circle cx={c.x} cy={c.y} r="6" fill="#ef4444" opacity="0.3">
+                  <animate attributeName="r" values="6;16;6" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite" />
                 </circle>
-                <circle cx={c.x} cy={c.y} r={isSelected ? "7" : "5"} fill={isSelected ? "url(#dot-active)" : "url(#dot)"} className="transition-all duration-300" />
-                <text x={c.x + 12} y={c.y - 8} fontSize={isSelected ? "14" : "11"} fontWeight={isSelected ? "700" : "600"} fill={isSelected ? "oklch(0.5 0.18 30)" : "oklch(0.235 0.075 264)"} fontFamily="Manrope, sans-serif" className="transition-all duration-300">
+                
+                {/* Solid red dot */}
+                <circle cx={c.x} cy={c.y} r={isSelected ? "7" : "5"} fill="#ef4444" className="transition-all duration-300" />
+                
+                <text x={c.x + 12} y={c.y - 8} fontSize={isSelected ? "14" : "12"} fontWeight={isSelected ? "700" : "600"} fill={isSelected ? "#ef4444" : "oklch(0.235 0.075 264)"} fontFamily="Manrope, sans-serif" className="transition-all duration-300">
                   {c.name}
                 </text>
               </g>

@@ -10,8 +10,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <img src={logo} alt="MIT" className="h-12 w-12 rounded-full bg-white p-1" />
             <div>
-              <div className="font-display text-xl">Mars International</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-gold-light">Trading Company</div>
+              <div className="font-display text-xl">Mars International Trading</div>
             </div>
           </div>
           <p className="mt-4 text-sm text-cream/70">
@@ -55,7 +54,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-cream/10">
         <div className="mx-auto max-w-7xl px-5 py-5 text-center text-xs text-cream/60">
-          © {new Date().getFullYear()} Mars International Trading Company. All rights reserved.
+          © {new Date().getFullYear()} Mars International Trading. All rights reserved.
         </div>
       </div>
     </footer>

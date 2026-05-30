@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Award, Globe2, Leaf, ShieldCheck, Sparkles, Truck } from "lucide-react";
+import { ArrowRight, Award, CheckCircle2, Globe2, Leaf, ShieldCheck, Sparkles, Truck } from "lucide-react";
 import hero from "@/assets/hero-spices.jpg";
 import logo from "@/assets/mit-logo.png";
 import exportsImg from "@/assets/exports.jpg";
@@ -10,14 +10,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="font-display text-4xl md:text-5xl font-semibold text-gradient-gold">{value}</div>
-      <div className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</div>
-    </div>
-  );
-}
 
 function Home() {
   const featured = PRODUCTS.slice(0, 6);
@@ -26,27 +18,21 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 pt-16 pb-24 md:grid-cols-2 md:items-center md:pt-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 pt-4 pb-24 md:grid-cols-2 md:items-center md:pt-8">
           <div className="reveal">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white/60 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-dark backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5" /> Global Indian Exporter
+              <Sparkles className="h-3.5 w-3.5" /> Authentic Indian Exports
             </span>
-            <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] text-navy">
-              The Essence of <span className="text-gradient-gold">India</span>,
-              <br /> Delivered to the World.
+            <h1 className="mt-4 font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight text-navy">
+              Welcome to <span className="text-gradient-gold">Mars International</span> Trading
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Mars International Trading Company exports premium South Indian spices, herbal powders,
-              natural supplements and industrial commodities — built on tradition, certified for the world.
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground font-medium">
+              A trusted exporter of high-quality agricultural, herbal, and natural products from India. 
+              Rooted in tradition and driven by global standards, we bring the richness of Indian farms and heritage to customers across the world.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-gold">Get Quote Now <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/products" className="btn-outline-gold">Explore Products</Link>
-            </div>
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
-              <Stat value="20+" label="Countries" />
-              <Stat value="50+" label="Products" />
-              <Stat value="100%" label="Quality" />
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/contact" className="btn-gold">Get in Touch <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/products" className="btn-outline-gold">Our Product Range</Link>
             </div>
           </div>
           <div className="relative">
@@ -56,8 +42,8 @@ function Home() {
             <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 hidden md:flex items-center gap-3 float-slow">
               <img src={logo} alt="MIT" className="h-14 w-14" />
               <div>
-                <div className="font-display text-lg text-navy">Authentic. Pure. Global.</div>
-                <div className="text-xs text-muted-foreground">Since farms to ports worldwide</div>
+                <div className="font-display text-lg text-navy">Quality You Can Trust.</div>
+                <div className="text-xs text-muted-foreground">Authentic Indian Heritage</div>
               </div>
             </div>
           </div>
@@ -67,27 +53,28 @@ function Home() {
       {/* Welcome */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <SectionHeading
-          eyebrow="Welcome"
-          title="A Trusted Name in Premium Indian Exports"
-          subtitle="Rooted in tradition and driven by global standards, we bring the richness of Indian farms and heritage to customers across the world — with an unwavering commitment to quality, sustainability and authenticity."
+          eyebrow="Introduction"
+          title="Rooted in Tradition, Driven by Excellence"
+          subtitle="With a strong commitment to quality, sustainability, and authenticity, we specialize in sourcing and exporting premium spices, herbal products, natural supplements, and selected industrial materials."
         />
       </section>
 
       {/* Why us */}
       <section className="mx-auto max-w-7xl px-5 py-12">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
           {[
-            { icon: ShieldCheck, title: "Quality Assured", text: "Carefully sourced, hygienically processed and rigorously tested." },
-            { icon: Globe2, title: "Global Reach", text: "Reliable exports across Asia, the Middle East, Europe and beyond." },
-            { icon: Leaf, title: "Authentic & Natural", text: "Traditional methods preserved with modern processing standards." },
-            { icon: Truck, title: "On-Time Delivery", text: "Dependable supply chain with transparent communication." },
+            { icon: ShieldCheck, title: "High Quality", text: "Carefully sourced products meeting international standards." },
+            { icon: Award, title: "Hygienic Process", text: "Handled with utmost care from sourcing to shipment." },
+            { icon: Globe2, title: "Competitive", text: "Premium quality with competitive pricing for global markets." },
+            { icon: Truck, title: "Reliable Supply", text: "Consistent supply chain and timely delivery worldwide." },
+            { icon: Sparkles, title: "Satisfaction", text: "An unwavering commitment to our customers' satisfaction." },
           ].map(({ icon: Icon, title, text }) => (
             <div key={title} className="glass rounded-2xl p-6 transition hover:-translate-y-1">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-                <Icon className="h-6 w-6 text-navy" />
+                <Icon className="h-5 w-5 text-navy" />
               </div>
-              <h3 className="mt-5 font-display text-xl text-navy">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+              <h3 className="mt-4 font-display text-lg text-navy font-semibold">{title}</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{text}</p>
             </div>
           ))}
         </div>
@@ -95,10 +82,10 @@ function Home() {
 
       {/* Products preview */}
       <section className="mx-auto max-w-7xl px-5 py-20">
-        <SectionHeading eyebrow="Product Range" title="Our Signature Exports" subtitle="A curated selection from our portfolio of spices, herbal powders, natural & industrial products." />
+        <SectionHeading eyebrow="Catalog" title="Our Product Range" subtitle="We offer a diverse portfolio of export-quality spices, traditional blends, and herbal supplements." />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((p) => (
-            <Link key={p.slug} to="/products" className="product-card group">
+            <Link key={p.slug} to={"/products/$slug"} params={{ slug: p.slug }} className="product-card group">
               <div className="aspect-square overflow-hidden">
                 <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
               </div>
@@ -111,28 +98,27 @@ function Home() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link to="/products" className="btn-navy">View All Products <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/products" className="btn-navy">Explore Full Catalog <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
 
       {/* Vision / Mission */}
-      <section className="bg-secondary py-20">
+      <section className="bg-secondary/30 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2">
-          <div className="glass rounded-3xl p-10">
-            <span className="text-xs uppercase tracking-[0.3em] text-gold-dark">Our Vision</span>
-            <h3 className="mt-3 font-display text-3xl text-navy">A globally recognised export house from India.</h3>
-            <p className="mt-4 text-muted-foreground">
-              Delivering authentic Indian products to the world while upholding the highest standards
-              of quality and integrity at every step.
+          <div className="glass rounded-3xl p-10 border-gold/20">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold-dark">Our Vision</span>
+            <h3 className="mt-4 font-display text-3xl text-navy leading-tight">A globally recognized export house.</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              To become a globally recognized export company delivering authentic Indian products while maintaining the highest standards of quality and integrity.
             </p>
           </div>
-          <div className="glass rounded-3xl p-10">
-            <span className="text-xs uppercase tracking-[0.3em] text-gold-dark">Our Mission</span>
-            <ul className="mt-4 space-y-3 text-muted-foreground">
-              <li className="flex gap-3"><Award className="mt-0.5 h-5 w-5 text-gold-dark shrink-0" /> Promote Indian agricultural and herbal products worldwide.</li>
-              <li className="flex gap-3"><Award className="mt-0.5 h-5 w-5 text-gold-dark shrink-0" /> Ensure consistent quality at competitive global pricing.</li>
-              <li className="flex gap-3"><Award className="mt-0.5 h-5 w-5 text-gold-dark shrink-0" /> Build long-term partnerships with international clients.</li>
-              <li className="flex gap-3"><Award className="mt-0.5 h-5 w-5 text-gold-dark shrink-0" /> Expand into new global markets with integrity and reliability.</li>
+          <div className="glass rounded-3xl p-10 border-navy/10">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold-dark">Our Mission</span>
+            <ul className="mt-6 space-y-4 text-sm text-muted-foreground">
+              <li className="flex gap-4"><CheckCircle2 className="h-5 w-5 text-gold-dark shrink-0" /> Promote Indian agricultural and herbal products worldwide.</li>
+              <li className="flex gap-4"><CheckCircle2 className="h-5 w-5 text-gold-dark shrink-0" /> Ensure consistent quality and competitive pricing.</li>
+              <li className="flex gap-4"><CheckCircle2 className="h-5 w-5 text-gold-dark shrink-0" /> Build long-term partnerships with international clients.</li>
+              <li className="flex gap-4"><CheckCircle2 className="h-5 w-5 text-gold-dark shrink-0" /> Expand into new global markets with integrity and reliability.</li>
             </ul>
           </div>
         </div>
@@ -141,21 +127,14 @@ function Home() {
       {/* Global */}
       <section className="relative mt-20 overflow-hidden">
         <img src={exportsImg} alt="Cargo ship at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, oklch(0.235 0.075 264 / 0.92), oklch(0.235 0.075 264 / 0.7))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, oklch(0.235 0.075 264 / 0.94), oklch(0.235 0.075 264 / 0.75))" }} />
         <div className="relative mx-auto max-w-5xl px-5 py-24 text-center text-cream">
-          <span className="text-xs uppercase tracking-[0.35em] text-gold-light">Global Reach</span>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Connecting Indian Heritage to Global Markets.</h2>
-          <p className="mt-5 mx-auto max-w-2xl text-cream/80">
-            We serve clients across Asia, the Middle East, Europe and emerging international markets —
-            building partnerships rooted in trust, quality, and dependable delivery.
+          <span className="text-xs font-bold uppercase tracking-[0.35em] text-gold-light">Global Reach</span>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Reliability and Excellence Worldwide.</h2>
+          <p className="mt-6 mx-auto max-w-2xl text-lg text-cream/80 leading-relaxed">
+            We aim to serve clients across Asia, the Middle East, Europe, and other international markets, building long-term partnerships based on reliability and excellence.
           </p>
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Stat value="20+" label="Countries Served" />
-            <Stat value="500+" label="Tonnes Shipped" />
-            <Stat value="120+" label="B2B Clients" />
-            <Stat value="15+" label="Years Combined Expertise" />
-          </div>
-          <div className="mt-10">
+          <div className="mt-12">
             <Link to="/contact" className="btn-gold">Partner With Us <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
