@@ -40,8 +40,8 @@ export function SiteFooter() {
           <h4 className="text-gold-light text-sm uppercase tracking-widest">Reach Us</h4>
           <ul className="mt-4 space-y-3 text-sm text-cream/80">
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-gold-light" /> Tamil Nadu, India</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold-light" /> +91 00000 00000</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold-light" /> info@marsinternational.com</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold-light" /> +91 9080531831</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold-light" /> mitgroupsindia@gmail.com</li>
           </ul>
           <div className="mt-4 flex gap-3">
             {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (

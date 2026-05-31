@@ -121,10 +121,10 @@ export function SiteHeader() {
       <header className="sticky top-0 z-40 glass border-b border-border/40">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5">
           {/* ── Logo ──────────────────────────────────────── */}
-          <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="Mars International Trading" className="h-14 w-14 object-contain" />
+          <Link to="/" className="flex items-center gap-4 shrink-0">
+            <img src={logo} alt="Mars International Trading" className="h-20 w-20 object-contain" />
             <div className="leading-tight">
-              <div className="font-display text-base font-semibold text-navy">Mars International Trading</div>
+              <div className="font-display text-xl font-bold text-navy">Mars International Trading</div>
             </div>
           </Link>
 

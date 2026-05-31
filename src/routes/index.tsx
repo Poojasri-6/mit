@@ -42,7 +42,7 @@ function Home() {
             <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 hidden md:flex items-center gap-3 float-slow">
               <img src={logo} alt="MIT" className="h-14 w-14" />
               <div>
-                <div className="font-display text-lg text-navy">Quality You Can Trust.</div>
+                <div className="font-display text-lg text-navy">Trusted Beyond Borders.</div>
                 <div className="text-xs text-muted-foreground">Authentic Indian Heritage</div>
               </div>
             </div>

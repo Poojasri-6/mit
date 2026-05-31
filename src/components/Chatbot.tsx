@@ -15,7 +15,7 @@ const FAQ_OPTIONS = [
   { label: "Do you provide certificates?", answer: "Yes, we provide all necessary quality and origin certificates including FSSAI, APEDA, and ISO." },
 ];
 
-const DEFAULT_ANSWER = "For specific or further queries, please contact us at +91 00000 00000 or email info@marsinternational.com.";
+const DEFAULT_ANSWER = "For specific or further queries, please contact us at +91 9080531831 or email mitgroupsindia@gmail.com.";
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);

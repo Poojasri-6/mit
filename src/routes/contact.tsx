@@ -17,8 +17,8 @@ function Contact() {
         <div className="space-y-6">
           {[
             { i: MapPin, t: "Office", d: "Tamil Nadu, India" },
-            { i: Phone, t: "Phone / WhatsApp", d: "+91 00000 00000" },
-            { i: Mail, t: "Email", d: "info@marsinternational.com" },
+            { i: Phone, t: "Phone / WhatsApp", d: "+91 9080531831" },
+            { i: Mail, t: "Email", d: "mitgroupsindia@gmail.com" },
           ].map(({ i: Icon, t, d }) => (
             <div key={t} className="flex items-start gap-4 glass rounded-2xl p-6">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
