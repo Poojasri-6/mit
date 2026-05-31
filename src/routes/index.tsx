@@ -23,7 +23,7 @@ function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white/60 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-dark backdrop-blur">
               <Sparkles className="h-3.5 w-3.5" /> Authentic Indian Exports
             </span>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight text-navy">
+            <h1 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-navy">
               Welcome to <span className="text-gradient-gold">Mars International</span> Trading
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground font-medium">
