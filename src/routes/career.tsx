@@ -35,8 +35,15 @@ function Career() {
       </div>
       <div className="mt-12 rounded-3xl bg-secondary p-10 text-center">
         <h3 className="font-display text-3xl text-navy">Don't see your role?</h3>
-        <p className="mt-2 text-muted-foreground">We're always open to exceptional talent. Send us your CV.</p>
-        <Link to="/contact" className="btn-gold mt-6 inline-flex"><Mail className="h-4 w-4" /> careers@marsinternational.com</Link>
+        <p className="mt-2 text-muted-foreground">We're always open to exceptional talent. Send us your CV or contact us.</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <a href="mailto:mitgroupsindia@gmail.com" className="btn-gold inline-flex items-center gap-2">
+            <Mail className="h-4 w-4" /> mitgroupsindia@gmail.com
+          </a>
+          <Link to="/contact" className="btn-outline-gold inline-flex items-center gap-2">
+            Contact Us
+          </Link>
+        </div>
       </div>
     </div>
   );

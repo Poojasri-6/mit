@@ -50,6 +50,7 @@ function ProductsDropdown({ onClose }: { onClose: () => void }) {
               <Link
                 key={cat}
                 to="/products"
+                search={{ category: cat }}
                 onClick={onClose}
                 className="group flex gap-3 items-start p-3 rounded-xl hover:bg-muted/60 transition-colors"
               >
@@ -204,6 +205,7 @@ export function SiteHeader() {
                           <Link
                             key={cat}
                             to="/products"
+                            search={{ category: cat }}
                             onClick={() => setMobileOpen(false)}
                             className="block py-1.5 text-sm text-muted-foreground hover:text-navy transition-colors"
                           >

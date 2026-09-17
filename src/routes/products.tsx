@@ -1,18 +1,40 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Home, ChevronRight, Search } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { motion } from "framer-motion";
 
+type ProductSearch = {
+  category?: string;
+};
+
 export const Route = createFileRoute("/products")({
+  validateSearch: (search: Record<string, unknown>): ProductSearch => {
+    return {
+      category: typeof search.category === "string" ? search.category : undefined,
+    };
+  },
   component: Products,
 });
 
 const CATS = ["All", "Spices", "Herbal", "Agro", "Industrial"] as const;
 
 function Products() {
-  const [cat, setCat] = useState<(typeof CATS)[number]>("All");
+  const searchParams = Route.useSearch();
+  const initialCat = (searchParams.category && CATS.includes(searchParams.category as any))
+    ? (searchParams.category as (typeof CATS)[number])
+    : "All";
+
+  const [cat, setCat] = useState<(typeof CATS)[number]>(initialCat);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (searchParams.category && CATS.includes(searchParams.category as any)) {
+      setCat(searchParams.category as (typeof CATS)[number]);
+    } else if (!searchParams.category) {
+      setCat("All");
+    }
+  }, [searchParams.category]);
 
   const list = PRODUCTS.filter((p) => {
     const matchCat = cat === "All" || p.category === cat;

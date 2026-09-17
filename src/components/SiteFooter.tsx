@@ -44,8 +44,20 @@ export function SiteFooter() {
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold-light" /> mitgroupsindia@gmail.com</li>
           </ul>
           <div className="mt-4 flex gap-3">
-            {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
-              <a key={i} href="#" className="rounded-full border border-cream/20 p-2 transition hover:border-gold-light hover:text-gold-light">
+            {[
+              { Icon: Facebook, name: "Facebook" },
+              { Icon: Instagram, name: "Instagram" },
+              { Icon: Linkedin, name: "LinkedIn" },
+              { Icon: Twitter, name: "Twitter" },
+            ].map(({ Icon, name }) => (
+              <a
+                key={name}
+                href={`https://${name.toLowerCase()}.com`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Mars International Trading on ${name}`}
+                className="rounded-full border border-cream/20 p-2 transition hover:border-gold-light hover:text-gold-light hover:scale-110"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
